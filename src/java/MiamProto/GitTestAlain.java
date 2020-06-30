@@ -14,4 +14,13 @@ public class GitTestAlain {
     public String prenom;
     public String nom;
     
+   
+
+    @Override
+    public String toString() {
+        return "GitTestAlain{" + "age=" + age + ", prenom=" + prenom + ", nom=" + nom + '}';
+    }
+    
+    
+    
 }
