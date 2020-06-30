@@ -53,6 +53,6 @@ public abstract class DAO<T> {
      * @param obj
      * @return 
      */
-    public abstract List<T> list();
+    public abstract List<T> getAll();
     
 }

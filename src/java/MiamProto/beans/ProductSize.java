@@ -17,7 +17,7 @@ public class ProductSize implements Serializable {
      * Attributes
      */
     private int id;
-    private Size size;
+    private String size;
     private double price;
     private int idProduct;
 
@@ -28,7 +28,7 @@ public class ProductSize implements Serializable {
     public ProductSize() {
     }
 
-    public ProductSize(int id, Size size, double price, int idProduct) {
+    public ProductSize(int id, String size, double price, int idProduct) {
         this.id = id;
         this.size = size;
         this.price = price;
@@ -47,11 +47,11 @@ public class ProductSize implements Serializable {
         this.id = id;
     }
 
-    public Size getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

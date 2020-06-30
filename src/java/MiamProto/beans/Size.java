@@ -12,6 +12,7 @@ package MiamProto.beans;
 public enum Size {
     PETITE,
     MOYENNE,
-    GRANDE
+    GRANDE;
     
+
 }

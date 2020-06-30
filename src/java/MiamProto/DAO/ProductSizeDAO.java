@@ -5,7 +5,9 @@
  */
 package MiamProto.DAO;
 
-import MiamProto.beans.Company;
+import MiamProto.beans.Product;
+import MiamProto.beans.ProductSize;
+import MiamProto.beans.Size;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,14 +22,14 @@ import java.util.logging.Logger;
  * Company DAO
  * @author stagjava
  */
-public class CompanyDAO  extends DAO<Company>{
+public class ProductSizeDAO  extends DAO<ProductSize>{
     
-    private final String TABLE = "company";
+    private final String TABLE = "productSize";
     
     @Override
-    public Company find(Integer id) {
+    public ProductSize find(Integer id) {
         // Initialisation
-        Company co = null;
+        ProductSize size = null;
         
         // Accès à la base
         try {
@@ -38,35 +40,34 @@ public class CompanyDAO  extends DAO<Company>{
             ResultSet rs = pstmt.executeQuery();
             
             if (rs.first()) {
-                co = new Company();
-                co.setId(id);
-                co.setName(rs.getString("name"));
-                co.setIdAdress(rs.getInt("idAddress"));
+                size = new ProductSize();
+                size.setId(id);
+                size.setSize(rs.getString("size"));
+                size.setPrice(rs.getDouble("price"));
+                size.setIdProduct(rs.getInt("idProduct"));
                 
             }
             
         } catch (SQLException e) {
-            Logger.getLogger(
-                    CompanyDAO.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
         }
         
-        return co;
+        return size;
     }
     
     @Override
-    public Company create(Company obj) {
+    public ProductSize create(ProductSize obj) {
         
         // Accès à la base
         try {
             String req = "INSERT INTO " + TABLE + 
-                    " (name, logoRep,  idAddress) VALUES(?,  ?, ?)";
+                    " (size, price, idProduct) VALUES(?,  ?, ?)";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
-
-            pstmt.setString(1, obj.getName());
-            pstmt.setString(2, obj.getLogoRep());
-            pstmt.setInt(3, obj.getIdAdress());
+            pstmt.setString(1, obj.getSize());
+            pstmt.setDouble(2, obj.getPrice());
+            pstmt.setInt(3, obj.getIdProduct());
 
             pstmt.executeUpdate();
 
@@ -78,42 +79,40 @@ public class CompanyDAO  extends DAO<Company>{
             }
             
         } catch (SQLException e) {
-            Logger.getLogger(
-                    Company.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
         }
         
         return obj;
     }
     
     @Override
-    public Company update(Company obj) {
+    public ProductSize update(ProductSize obj) {
         
         // Accès à la base
         try {
             String req = "UPDATE " + TABLE + 
-                    " SET name = ?, logoRep = ? , idAddress = ? WHERE id = ?";
+                    " SET size = ?, price = ? , idProduct = ? WHERE id = ?";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req);
 
-            pstmt.setString(1, obj.getName());
-            pstmt.setString(2, obj.getLogoRep());
-            pstmt.setInt(3, obj.getIdAdress());
+            pstmt.setString(1, obj.getSize());
+            pstmt.setDouble(2, obj.getPrice());
+            pstmt.setInt(3, obj.getIdProduct());
             pstmt.setInt(4, obj.getId());
 
             pstmt.executeUpdate();
             
             
         } catch (SQLException e) {
-            Logger.getLogger(
-                    CompanyDAO.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
         }
         
         return obj;
     }
     
     @Override
-    public Company delete(Company obj) {
+    public ProductSize delete(ProductSize obj) {
         
         // Accès à la base
         try {
@@ -128,17 +127,16 @@ public class CompanyDAO  extends DAO<Company>{
             
             
         } catch (SQLException e) {
-            Logger.getLogger(
-                    CompanyDAO.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
         }
         
         return obj;
     }
     
     @Override
-    public List<Company> getAll() {
+    public List<ProductSize> getAll() {
         // Initialisation
-        List<Company> entities = new ArrayList<>();
+        List<ProductSize> entities = new ArrayList<>();
         
         // Accès à la base
         try {
@@ -148,17 +146,16 @@ public class CompanyDAO  extends DAO<Company>{
             ResultSet rs = pstmt.executeQuery();
             
             while (rs.next()) {
-                entities.add(new Company(
+                entities.add(new ProductSize(
                         rs.getInt("id"), 
-                        rs.getString("name"), 
-                        rs.getString("logoRep"), 
-                        rs.getInt("idAddress"))
+                        rs.getString("size"), 
+                        rs.getDouble("price"), 
+                        rs.getInt("idProduct"))
                 );
           }
             
         } catch (SQLException e) {
-            Logger.getLogger(
-                    CompanyDAO.class.getName()).log(Level.SEVERE, null, e);            
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
         }
         
         return entities;
