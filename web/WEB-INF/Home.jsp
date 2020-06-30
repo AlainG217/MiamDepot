@@ -45,7 +45,15 @@
     </li>
         </p>
     </body>
+    <br><br><br>
     <footer>
-        Contacts : 
+        
+        <span class="contact">Contacts : </span><br>
+         <br>
+        - Adresse : 13, rue de ..... <br>
+          81000 XXXX <br>
+        -Téléphone : 00.00.00.00.00 <br>
+        - Mail : mmmmmmm@gmail.com<br><br>
+        <a href="https://localhost:8084/MiamDepot/Home">Espace gérant</a>
     </footer>
 </html>
