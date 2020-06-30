@@ -10,5 +10,8 @@ package MiamProto;
  * @author stagjava
  */
 public class GitTestAlain {
+    public int age;
+    public String prenom;
+    public String nom;
     
 }
