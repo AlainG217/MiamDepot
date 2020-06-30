@@ -5,11 +5,13 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author stagjava
  */
-public class SalesOrderLine {
+public class SalesOrderLine implements Serializable {
     /**
      * Attributes
      * type 0: Normal 1: Menu 
@@ -22,6 +24,24 @@ public class SalesOrderLine {
     private int idOrder;
     private int idProductSize;
     private int idMasterLine;
+
+    /**
+     * Constructors
+     */
+
+    public SalesOrderLine() {
+    }
+
+    public SalesOrderLine(int id, int orderQty, int unitPrice, double totalPrice, int type, int idOrder, int idProductSize, int idMasterLine) {
+        this.id = id;
+        this.orderQty = orderQty;
+        this.unitPrice = unitPrice;
+        this.totalPrice = totalPrice;
+        this.type = type;
+        this.idOrder = idOrder;
+        this.idProductSize = idProductSize;
+        this.idMasterLine = idMasterLine;
+    }
 
     /**
      * Getters and setters

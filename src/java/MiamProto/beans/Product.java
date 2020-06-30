@@ -5,11 +5,13 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author stagjava
  */
-public class Product {
+public class Product  implements Serializable {
 
     /**
      * Attributes
@@ -20,6 +22,21 @@ public class Product {
     private byte[] image;
     private String imageRep;
     private int idCompany;
+
+    /**
+     * Constructors
+     */
+
+    public Product() {
+    }
+
+    public Product(int id, String name, String description, String imageRep, int idCompany) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imageRep = imageRep;
+        this.idCompany = idCompany;
+    }
 
     /**
      * Getters and setters

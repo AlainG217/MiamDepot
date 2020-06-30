@@ -5,11 +5,13 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author stagjava
  */
-public class Address {
+public class Address implements Serializable {
 
     /**
      * Attributes
@@ -23,6 +25,25 @@ public class Address {
     private String  city;
     private String  phone;
     private String  email;
+
+    /**
+     * Constructors
+     */
+
+    public Address() {
+    }
+
+    public Address(int id, String firstName, String laststName, String line1, String line2, String postalCode, String city, String phone, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.laststName = laststName;
+        this.line1 = line1;
+        this.line2 = line2;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.phone = phone;
+        this.email = email;
+    }
     
     /**
      * Getters and setters

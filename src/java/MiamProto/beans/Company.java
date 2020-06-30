@@ -5,11 +5,13 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author stagjava
  */
-public class Company {
+public class Company implements Serializable {
 
     /**
      * Attributes
@@ -20,6 +22,21 @@ public class Company {
     private String logoRep;
     private int idAdress;
 
+    /**
+     * Constructors
+     */
+
+    public Company() {
+    }
+
+    public Company(int id, String name, String logoRep, int idAdress) {
+        this.id = id;
+        this.name = name;
+        this.logoRep = logoRep;
+        this.idAdress = idAdress;
+    }
+
+    
     /**
      * Getters and setters
      */

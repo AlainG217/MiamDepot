@@ -5,11 +5,13 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author stagjava
  */
-public class ProductSize {
+public class ProductSize implements Serializable {
 
     /**
      * Attributes
@@ -18,6 +20,20 @@ public class ProductSize {
     private Size size;
     private double price;
     private int idProduct;
+
+    /**
+     * Constructors
+     */
+
+    public ProductSize() {
+    }
+
+    public ProductSize(int id, Size size, double price, int idProduct) {
+        this.id = id;
+        this.size = size;
+        this.price = price;
+        this.idProduct = idProduct;
+    }
 
     /**
      * Getters and setters

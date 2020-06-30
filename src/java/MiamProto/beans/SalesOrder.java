@@ -5,13 +5,14 @@
  */
 package MiamProto.beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author stagjava
  */
-public class SalesOrder {
+public class SalesOrder implements Serializable {
 
     /**
      * Attributes
@@ -25,6 +26,23 @@ public class SalesOrder {
     private double totalPrice;
     private int idCompany;
     private int idAdress;
+
+    /**
+     * Constructors
+     */
+
+    public SalesOrder() {
+    }
+
+    public SalesOrder(int id, int deliveryMode, LocalDateTime deliveryTime, int status, double totalPrice, int idCompany, int idAdress) {
+        this.id = id;
+        this.deliveryMode = deliveryMode;
+        this.deliveryTime = deliveryTime;
+        this.status = status;
+        this.totalPrice = totalPrice;
+        this.idCompany = idCompany;
+        this.idAdress = idAdress;
+    }
 
     /**
      * Getters and setters
