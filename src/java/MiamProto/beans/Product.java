@@ -22,6 +22,7 @@ public class Product  implements Serializable {
     private byte[] image;
     private String imageRep;
     private int idCompany;
+    private int type;       // 0: plat 1: boisson
 
     /**
      * Constructors
@@ -30,12 +31,14 @@ public class Product  implements Serializable {
     public Product() {
     }
 
-    public Product(int id, String name, String description, String imageRep, int idCompany) {
+    public Product(int id, String name, String description, String imageRep, 
+            int idCompany, int type) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imageRep = imageRep;
         this.idCompany = idCompany;
+        this.type = type;
     }
 
     /**
@@ -90,9 +93,19 @@ public class Product  implements Serializable {
         this.idCompany = idCompany;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", description=" + description + ", image=" + image + ", imageRep=" + imageRep + ", idCompany=" + idCompany + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", description=" 
+                + description + ", image=" + image + ", imageRep=" + imageRep + 
+                ", idCompany=" + idCompany + ", type=" + type + '}';
     }
     
 }

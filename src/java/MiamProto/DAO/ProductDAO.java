@@ -45,6 +45,7 @@ public class ProductDAO  extends DAO<Product>{
                 product.setDescription(rs.getString("description"));
                 product.setImageRep(rs.getString("imageRep"));
                 product.setIdCompany(rs.getInt("idCompany"));
+                product.setType(rs.getInt("type"));
                 
             }
             
@@ -60,7 +61,7 @@ public class ProductDAO  extends DAO<Product>{
         // Accès à la base
         try {
             String req = "INSERT INTO " + TABLE + 
-                    " (name, description, imageRep, idCompany) VALUES(?, ?, ?, ?)";
+                    " (name, description, imageRep, idCompany, type) VALUES(?, ?, ?, ?, ?)";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
@@ -69,6 +70,7 @@ public class ProductDAO  extends DAO<Product>{
             pstmt.setString(2, obj.getDescription());
             pstmt.setString(3, obj.getImageRep());
             pstmt.setInt(4, obj.getIdCompany());
+            pstmt.setInt(5, obj.getType());
 
             pstmt.executeUpdate();
 
@@ -93,7 +95,7 @@ public class ProductDAO  extends DAO<Product>{
         // Accès à la base
         try {
             String req = "UPDATE " + TABLE + 
-                    " SET name = ?, description = ?, imageRep = ? , idCompany = ? WHERE id = ?";
+                    " SET name = ?, description = ?, imageRep = ? , idCompany = ?, type = ? WHERE id = ?";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req);
@@ -102,7 +104,8 @@ public class ProductDAO  extends DAO<Product>{
             pstmt.setString(2, obj.getDescription());
             pstmt.setString(3, obj.getImageRep());
             pstmt.setInt(4, obj.getIdCompany());
-            pstmt.setInt(5, obj.getId());
+            pstmt.setInt(5, obj.getType());
+            pstmt.setInt(6, obj.getType());
 
             pstmt.executeUpdate();
             
@@ -154,7 +157,8 @@ public class ProductDAO  extends DAO<Product>{
                         rs.getString("name"), 
                         rs.getString("description"), 
                         rs.getString("imageRep"), 
-                        rs.getInt("idCompany"))
+                        rs.getInt("idCompany"),
+                        rs.getInt("type"))
                 );
           }
             

@@ -70,6 +70,7 @@ public class ProductPilot {
                         product.getDescription(),
                         product.getImage(), 
                         product.getImageRep(), 
+                        product.getType(), 
                         sizes)
                 );
             
@@ -78,13 +79,14 @@ public class ProductPilot {
         return productVs;
     }
     
-    public void init (String name, String desc, List<ProductSize> sizes ) {
+    public void init (String name, String desc, int type, List<ProductSize> sizes ) {
         
         view = new ProductV(
                         name, 
                         desc,
                         null, 
                         "", 
+                        type,
                         sizes);
         // Indicate add operation to do
         productState = 1;
@@ -122,6 +124,7 @@ public class ProductPilot {
             product.setImage(view.getImage());
             product.setImageRep(view.getImageRep());
             product.setIdCompany(co.getId());
+            product.setType(view.getType());
             product = pDAO.create(product);
             
             // Create the different sizes

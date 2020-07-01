@@ -20,17 +20,20 @@ public class ProductV {
     private String description;
     private byte[] image;
     private String imageRep;
+    private int type;
     private List<ProductSize> sizes;
 
     public ProductV() {
     }
 
-    public ProductV(String name, String description, byte[] image, String imageRep, List<ProductSize> sizes) {
+    public ProductV(String name, String description, byte[] image, 
+            String imageRep, int type, List<ProductSize> sizes) {
         this.name = name;
         this.description = description;
         this.image = image;
         this.imageRep = imageRep;
         this.sizes = sizes;
+        this.type = type;
     }
 
     /**
@@ -77,9 +80,18 @@ public class ProductV {
         this.sizes = sizes;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "ProductV{" + "name=" + name + ", description=" + description + ", imageRep=" + imageRep + '}';
+        return "ProductV{" + "name=" + name + ", description=" + description + ", "
+                + "imageRep=" + imageRep +  "type=" + type +'}';
     }
     
     
