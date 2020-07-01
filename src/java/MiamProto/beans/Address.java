@@ -18,7 +18,7 @@ public class Address implements Serializable {
      */
     private int     id;
     private String  firstName;
-    private String  laststName;
+    private String  lastName;
     private String  line1;
     private String  line2;
     private String  postalCode;
@@ -33,10 +33,10 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(int id, String firstName, String laststName, String line1, String line2, String postalCode, String city, String phone, String email) {
+    public Address(int id, String firstName, String lastName, String line1, String line2, String postalCode, String city, String phone, String email) {
         this.id = id;
         this.firstName = firstName;
-        this.laststName = laststName;
+        this.lastName = lastName;
         this.line1 = line1;
         this.line2 = line2;
         this.postalCode = postalCode;
@@ -65,12 +65,12 @@ public class Address implements Serializable {
         this.firstName = firstName;
     }
 
-    public String getLaststName() {
-        return laststName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLaststName(String laststName) {
-        this.laststName = laststName;
+    public void setLastName(String laststName) {
+        this.lastName = laststName;
     }
 
     public String getLine1() {
@@ -123,7 +123,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "Address{" + "id=" + id + ", firstName=" + firstName + ", laststName=" + laststName + ", line1=" + line1 + ", line2=" + line2 + ", postalCode=" + postalCode + ", city=" + city + ", phone=" + phone + ", email=" + email + '}';
+        return "Address{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", line1=" + line1 + ", line2=" + line2 + ", postalCode=" + postalCode + ", city=" + city + ", phone=" + phone + ", email=" + email + '}';
     }
     
    

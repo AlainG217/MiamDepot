@@ -116,6 +116,7 @@ public class ProductPilot {
             
             try {
             // Create the product
+            product = new Product();
             product.setName(view.getName());
             product.setDescription(view.getDescription());
             product.setImage(view.getImage());
@@ -144,4 +145,13 @@ public class ProductPilot {
     public void update() {
         // A implémenter
     }
+
+    public int getProductState() {
+        return productState;
+    }
+
+    public void setProductState(int productState) {
+        this.productState = productState;
+    }
+    
 }

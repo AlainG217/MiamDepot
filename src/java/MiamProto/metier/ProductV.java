@@ -76,6 +76,11 @@ public class ProductV {
     public void setSizes(List<ProductSize> sizes) {
         this.sizes = sizes;
     }
+
+    @Override
+    public String toString() {
+        return "ProductV{" + "name=" + name + ", description=" + description + ", imageRep=" + imageRep + '}';
+    }
     
     
 }
