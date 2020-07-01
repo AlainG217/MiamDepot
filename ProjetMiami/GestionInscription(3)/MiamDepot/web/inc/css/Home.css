@@ -1,0 +1,50 @@
+header {
+    display: flex; 
+ }
+body {
+    background-color: #E9967A;
+    
+}
+
+p {
+    font-size: 200%;
+    font-style: italic;
+    padding-left: 30px;
+    text-decoration: underline;
+      text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+
+}
+
+h1, h2 {
+    text-align: center;
+    font-style: italic;
+    color: green;
+    font-size: 400%;
+    width: 30%;
+  text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+}
+li {
+    width: 70%;
+    height: 50%;
+    border: 2px darkgreen solid;
+    border-radius: 40px;
+    font-style: italic;
+    padding: 6px;
+    text-align: center;
+    list-style-type: none;
+    background-color:navajowhite
+}
+
+footer {
+    font-size: 100%;
+    text-align: center;
+    font-style: italic;
+}
+
+
+a{ padding: 50 px;
+    
+    color: white;
+    font-size: medium;
+ 
+}
