@@ -21,6 +21,8 @@ public class Company implements Serializable {
     private byte[] logo;
     private String logoRep;
     private int idAdress;
+    private String user;
+    private String password;
 
     /**
      * Constructors
@@ -29,11 +31,14 @@ public class Company implements Serializable {
     public Company() {
     }
 
-    public Company(int id, String name, String logoRep, int idAdress) {
+    public Company(int id, String name, String logoRep, int idAdress,
+            String user, String password) {
         this.id = id;
         this.name = name;
         this.logoRep = logoRep;
         this.idAdress = idAdress;
+        this.user = user;
+        this.password = password;
     }
 
     
@@ -80,6 +85,22 @@ public class Company implements Serializable {
 
     public void setIdAdress(int idAdress) {
         this.idAdress = idAdress;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

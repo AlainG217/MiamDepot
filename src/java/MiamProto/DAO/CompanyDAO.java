@@ -42,6 +42,8 @@ public class CompanyDAO  extends DAO<Company>{
                 co.setId(id);
                 co.setName(rs.getString("name"));
                 co.setIdAdress(rs.getInt("idAddress"));
+                co.setUser(rs.getString("user"));
+                co.setUser(rs.getString("password"));
                 
             }
             
@@ -59,7 +61,7 @@ public class CompanyDAO  extends DAO<Company>{
         // Accès à la base
         try {
             String req = "INSERT INTO " + TABLE + 
-                    " (name, logoRep,  idAddress) VALUES(?,  ?, ?)";
+                    " (name, logoRep,  idAddress, user, password) VALUES(?,  ?, ?, ?, ?)";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
@@ -67,6 +69,8 @@ public class CompanyDAO  extends DAO<Company>{
             pstmt.setString(1, obj.getName());
             pstmt.setString(2, obj.getLogoRep());
             pstmt.setInt(3, obj.getIdAdress());
+            pstmt.setString(4, obj.getUser());
+            pstmt.setString(5, obj.getPassword());
 
             pstmt.executeUpdate();
 
@@ -91,7 +95,8 @@ public class CompanyDAO  extends DAO<Company>{
         // Accès à la base
         try {
             String req = "UPDATE " + TABLE + 
-                    " SET name = ?, logoRep = ? , idAddress = ? WHERE id = ?";
+                    " SET name = ?, logoRep = ? , idAddress = ?, user = ?,"
+                    + " password = ? WHERE id = ?";
             
             PreparedStatement pstmt = 
                     this.connexion.prepareStatement(req);
@@ -99,7 +104,9 @@ public class CompanyDAO  extends DAO<Company>{
             pstmt.setString(1, obj.getName());
             pstmt.setString(2, obj.getLogoRep());
             pstmt.setInt(3, obj.getIdAdress());
-            pstmt.setInt(4, obj.getId());
+            pstmt.setString(4, obj.getUser());
+            pstmt.setString(5, obj.getPassword());
+            pstmt.setInt(6, obj.getId());
 
             pstmt.executeUpdate();
             
@@ -152,7 +159,9 @@ public class CompanyDAO  extends DAO<Company>{
                         rs.getInt("id"), 
                         rs.getString("name"), 
                         rs.getString("logoRep"), 
-                        rs.getInt("idAddress"))
+                        rs.getInt("idAddress"),
+                        rs.getString("user"),
+                        rs.getString("password"))
                 );
           }
             
