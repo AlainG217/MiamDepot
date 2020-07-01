@@ -87,7 +87,12 @@ public class TestAddCompany {
         address = adDAO.find(1);
         System.out.println(address.toString());
         
-        Company company = new Company(0, "La Java Pizzeria", "", address.getId());
+        Company company = new Company(0, 
+                "La Java Pizzeria", 
+                "", 
+                address.getId(),
+                "JavaPizza",
+                "1234");
         try {
             company = coDAO.create(company);
             connexion.commit();
