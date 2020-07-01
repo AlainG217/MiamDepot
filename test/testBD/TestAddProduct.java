@@ -57,6 +57,7 @@ public class TestAddProduct {
         pilot.init(
                 "Margharita", 
                 "Base tomate, champignons, olives", 
+                0,
                 sizes);
         System.out.println(pilot.getProductState());
         

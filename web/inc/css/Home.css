@@ -7,13 +7,23 @@ body {
     
 }
 
-p {
+.product {
     font-size: 200%;
     font-style: italic;
     padding-left: 30px;
+    padding-bottom: 15px;
     text-decoration: underline;
-      text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+    text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+}
 
+.flotte {
+    font-size: 150%;
+    font-style: italic;
+    float:right;
+    text-decoration-line: underline;
+     text-decoration-style: double;
+    color:  antiquewhite;
+    
 }
 
 h1, h2 {
@@ -25,15 +35,21 @@ h1, h2 {
   text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
 }
 li {
-    width: 70%;
+    width: 90%;
     height: 50%;
     border: 2px darkgreen solid;
     border-radius: 40px;
     font-style: italic;
     padding: 6px;
-    text-align: center;
+    text-align: left;
     list-style-type: none;
     background-color:navajowhite
+}
+#cook {
+    padding-left: 115px;
+}
+ul {
+    width: 80%;
 }
 
 footer {
@@ -41,4 +57,33 @@ footer {
     text-align: center;
     font-style: italic;
 }
+.name {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
