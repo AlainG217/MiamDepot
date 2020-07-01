@@ -10,5 +10,17 @@ package MiamProto;
  * @author stagjava
  */
 public class GitTestAlain {
+    public int age;
+    public String prenom;
+    public String nom;
+    
+   
+
+    @Override
+    public String toString() {
+        return "GitTestAlain{" + "age=" + age + ", prenom=" + prenom + ", nom=" + nom + '}';
+    }
+    
+    
     
 }
