@@ -40,6 +40,7 @@ public final class MySQLConnexion {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 connexion = DriverManager.getConnection(URL, USER, PASSWORD);
+                connexion.setAutoCommit(false);
                 
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(MySQLConnexion.class.getName()).log(Level.SEVERE, null, ex);

@@ -161,4 +161,32 @@ public class ProductSizeDAO  extends DAO<ProductSize>{
         return entities;
     }
     
+    public List<ProductSize> getByProductId(int id) {
+        // Initialisation
+        List<ProductSize> entities = new ArrayList<>();
+        
+        // Accès à la base
+        try {
+            String req = "SELECT * FROM " + TABLE + " WHERE idProduct = ?";
+            
+            PreparedStatement pstmt = this.connexion.prepareStatement(req);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            
+            while (rs.next()) {
+                entities.add(new ProductSize(
+                        rs.getInt("id"), 
+                        rs.getString("size"), 
+                        rs.getDouble("price"), 
+                        rs.getInt("idProduct"))
+                );
+          }
+            
+        } catch (SQLException e) {
+            Logger.getLogger(ProductSizeDAO.class.getName()).log(Level.SEVERE, null, e);            
+        }
+        
+        return entities;
+    }
+    
 }

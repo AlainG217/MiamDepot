@@ -6,6 +6,7 @@
 package MiamProto.DAO;
 
 import MiamProto.beans.Product;
+import MiamProto.metier.ProductV;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,7 +55,6 @@ public class ProductDAO  extends DAO<Product>{
         return product;
     }
     
-    @Override
     public Product create(Product obj) {
         
         // Accès à la base
