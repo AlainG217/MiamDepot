@@ -21,19 +21,50 @@ public class ProductV {
     private byte[] image;
     private String imageRep;
     private int type;
+    private String small; 
+    private double smallPrice; 
+    private String medium; 
+    private double mediumPrice; 
+    private String large; 
+    private double largePrice; 
     private List<ProductSize> sizes;
 
     public ProductV() {
     }
 
     public ProductV(String name, String description, byte[] image, 
-            String imageRep, int type, List<ProductSize> sizes) {
+            String imageRep, int type, 
+            List<ProductSize> sizes) {
         this.name = name;
         this.description = description;
         this.image = image;
         this.imageRep = imageRep;
         this.sizes = sizes;
         this.type = type;
+
+        small = "";
+        smallPrice = 0;
+        medium = "";
+        mediumPrice = 0;
+        large = "";
+        largePrice = 0;
+        
+        for (ProductSize size : sizes) {
+            switch (size.getSize()) {
+                case "PETITE" :
+                    small = size.getSize();
+                    smallPrice = size.getPrice();
+                    break;
+                case "MOYENNE" :
+                    medium = size.getSize();
+                    mediumPrice = size.getPrice();
+                    break;
+                case "GRANDE" :
+                    large = size.getSize();
+                    largePrice = size.getPrice();
+                    break;
+             }
+        }
     }
 
     /**

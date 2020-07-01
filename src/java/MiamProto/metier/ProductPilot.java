@@ -88,6 +88,8 @@ public class ProductPilot {
                         "", 
                         type,
                         sizes);
+        
+        
         // Indicate add operation to do
         productState = 1;
     }
