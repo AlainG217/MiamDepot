@@ -168,5 +168,34 @@ public class ProductDAO  extends DAO<Product>{
         
         return entities;
     }
+    public List<Product> getByType(int type) {
+        // Initialisation
+        List<Product> entities = new ArrayList<>();
+        
+        // Accès à la base
+        try {
+            String req = "SELECT * FROM " + TABLE + " WHERE type = ?";
+            
+            PreparedStatement pstmt = this.connexion.prepareStatement(req);
+            pstmt.setInt(1, type);
+            ResultSet rs = pstmt.executeQuery();
+            
+            while (rs.next()) {
+                entities.add(new Product(
+                        rs.getInt("id"), 
+                        rs.getString("name"), 
+                        rs.getString("description"), 
+                        rs.getString("imageRep"), 
+                        rs.getInt("idCompany"),
+                        rs.getInt("type"))
+                );
+          }
+            
+        } catch (SQLException e) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, e);            
+        }
+        
+        return entities;
+    }
     
 }

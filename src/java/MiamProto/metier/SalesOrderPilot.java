@@ -16,11 +16,13 @@ import java.util.List;
  * @author stagjava
  */
 public class SalesOrderPilot {
-    Company co;
-    List<SalesOrderLineV> lines;    
-    int orderState = 0;
+    private Company co;
+    private List<SalesOrderLineV> lines;    
+    private SalesOrderV orderView;
+    private int orderState = 0;
+    private double orderTotal = 0;
 
-    CompanyDAO coDAO;
+    private CompanyDAO coDAO;
 
     public SalesOrderPilot() {
         // Retrieve Company infos
@@ -31,20 +33,26 @@ public class SalesOrderPilot {
     public void newBasket(List<ProductV> productVs) {
         // Init
         lines = new ArrayList<>();
-        SalesOrderV orderView;
-        
+        orderView = new SalesOrderV();
+                
         for (ProductV product : productVs) {
             
-            if (product.isSmallSelected()) {
-                addLineView( product,  0);
+            if (product.getQty() > 0) {
+                if (product.isSmallSelected()) {
+                    addLineView( product,  0);
+                }
+                if (product.isMediumSelected()) {
+                    addLineView( product,  1);
+                }
+                if (product.isLargeSelected()) {
+                    addLineView( product,  2);
+                }
+                
             }
-            if (product.isMediumSelected()) {
-                addLineView( product,  1);
-            }
-            if (product.isLargeSelected()) {
-                addLineView( product,  2);
-            }
+            
         }
+        orderView.setLines(lines);
+        orderView.setOrderTotal(orderTotal);
 
     }
 
@@ -77,5 +85,47 @@ public class SalesOrderPilot {
         }
         
         lines.add(line);
+        orderTotal += line.getTotalPrice();
     }
+
+    public Company getCo() {
+        return co;
+    }
+
+    public void setCo(Company co) {
+        this.co = co;
+    }
+
+    public List<SalesOrderLineV> getLines() {
+        return lines;
+    }
+
+    public void setLines(List<SalesOrderLineV> lines) {
+        this.lines = lines;
+    }
+
+    public SalesOrderV getOrderView() {
+        return orderView;
+    }
+
+    public void setOrderView(SalesOrderV orderView) {
+        this.orderView = orderView;
+    }
+
+    public int getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(int orderState) {
+        this.orderState = orderState;
+    }
+
+    public CompanyDAO getCoDAO() {
+        return coDAO;
+    }
+
+    public void setCoDAO(CompanyDAO coDAO) {
+        this.coDAO = coDAO;
+    }
+
 }

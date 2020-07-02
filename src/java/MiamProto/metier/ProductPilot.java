@@ -79,6 +79,54 @@ public class ProductPilot {
                 
         return productVs;
     }
+
+    public List<ProductV> getFood() {
+    
+       return getByType(0);
+    }
+
+    public List<ProductV> getDrinks() {
+    
+       return getByType(1);
+    }
+    /**
+     * Build and return a list of productViews.
+     * @return 
+     */
+    public List<ProductV> getByType(int type) {
+        // Init
+        List<ProductV> productVs = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
+        List<ProductSize> sizes = new ArrayList<>();
+        
+        // construct the DAOs
+        if (pDAO == null)
+            pDAO = new ProductDAO();
+        if (psDAO == null)
+            psDAO = new ProductSizeDAO();
+        
+        // Get the list of products
+        products = pDAO.getByType(type);
+        
+        // For each product, get the sizes and build product view
+        for (Product product : products) {
+            
+            sizes = psDAO.getByProductId(product.getId());
+            productVs.add(
+                new ProductV(
+                        product.getName(), 
+                        product.getDescription(),
+                        product.getImage(), 
+                        product.getImageRep(), 
+                        product.getType(), 
+                        product.getId(),
+                        sizes)
+                );
+            
+        }
+                
+        return productVs;
+    }
     
     public void init (String name, String desc, int type, List<ProductSize> sizes ) {
         
