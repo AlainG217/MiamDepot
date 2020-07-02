@@ -1,0 +1,67 @@
+fieldset {
+    padding: 10px;
+    border: 3px white solid;
+     float:left;
+     
+}
+legend {
+    font-weight: bold;
+    color: white ;
+}
+body, p, legend, label, input {
+    font: normal 8pt verdana, helvetica, sans-serif;
+}
+form label {
+    float: left;
+    width: 200px;
+    margin: 3px 0px 0px 0px;
+}
+
+form input {
+    margin: 3px 3px 0px 0px;
+    border: 1px #999 solid;
+}
+
+form input.sansLabel {
+    margin-left: 200px;
+}
+
+#photo {
+    display: none;
+}
+label {
+    font-weight: bold;
+    width: 130px;
+    display: inline-block;
+    white-space: normal;
+}
+
+
+header {
+    display: flex; 
+ }
+body {
+    background-color: #E9967A;
+    
+}
+
+
+h1, h2 {
+    text-align: center;
+    font-style: italic;
+    color: green;
+    font-size: 400%;
+    width: 30%;
+  text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white, 0 0 2px white;
+}
+
+a{ padding: 50 px;
+    
+    color: white;
+    font-size: medium;
+    text-decoration: none;
+}
+textarea{
+    width: 135px;
+    
+}
