@@ -71,6 +71,7 @@ public class ProductPilot {
                         product.getImage(), 
                         product.getImageRep(), 
                         product.getType(), 
+                        product.getId(),
                         sizes)
                 );
             
@@ -87,6 +88,7 @@ public class ProductPilot {
                         null, 
                         "", 
                         type,
+                        0,
                         sizes);
         
         

@@ -21,19 +21,24 @@ public class ProductV {
     private byte[] image;
     private String imageRep;
     private int type;
+    private int qty;
     private String small; 
     private double smallPrice; 
+    private boolean smallSelected; 
     private String medium; 
     private double mediumPrice; 
+    private boolean mediumSelected; 
     private String large; 
     private double largePrice; 
+    private boolean largeSelected; 
     private List<ProductSize> sizes;
+    private int id;
 
     public ProductV() {
     }
 
     public ProductV(String name, String description, byte[] image, 
-            String imageRep, int type, 
+            String imageRep, int type, int id,
             List<ProductSize> sizes) {
         this.name = name;
         this.description = description;
@@ -41,6 +46,8 @@ public class ProductV {
         this.imageRep = imageRep;
         this.sizes = sizes;
         this.type = type;
+        this.qty = 0;
+        this.id = id;
 
         small = "";
         smallPrice = 0;
@@ -48,6 +55,9 @@ public class ProductV {
         mediumPrice = 0;
         large = "";
         largePrice = 0;
+        smallSelected = false;
+        mediumSelected = false;
+        largeSelected = false;
         
         for (ProductSize size : sizes) {
             switch (size.getSize()) {
@@ -117,6 +127,94 @@ public class ProductV {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public String getSmall() {
+        return small;
+    }
+
+    public void setSmall(String small) {
+        this.small = small;
+    }
+
+    public double getSmallPrice() {
+        return smallPrice;
+    }
+
+    public void setSmallPrice(double smallPrice) {
+        this.smallPrice = smallPrice;
+    }
+
+    public boolean isSmallSelected() {
+        return smallSelected;
+    }
+
+    public void setSmallSelected(boolean smallSelected) {
+        this.smallSelected = smallSelected;
+    }
+
+    public String getMedium() {
+        return medium;
+    }
+
+    public void setMedium(String medium) {
+        this.medium = medium;
+    }
+
+    public double getMediumPrice() {
+        return mediumPrice;
+    }
+
+    public void setMediumPrice(double mediumPrice) {
+        this.mediumPrice = mediumPrice;
+    }
+
+    public boolean isMediumSelected() {
+        return mediumSelected;
+    }
+
+    public void setMediumSelected(boolean mediumSelected) {
+        this.mediumSelected = mediumSelected;
+    }
+
+    public String getLarge() {
+        return large;
+    }
+
+    public void setLarge(String large) {
+        this.large = large;
+    }
+
+    public double getLargePrice() {
+        return largePrice;
+    }
+
+    public void setLargePrice(double largePrice) {
+        this.largePrice = largePrice;
+    }
+
+    public boolean isLargeSelected() {
+        return largeSelected;
+    }
+
+    public void setLargeSelected(boolean largeSelected) {
+        this.largeSelected = largeSelected;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
