@@ -48,7 +48,7 @@
 <input type="submit" class="validate" value="Valider le panier">
 <p class =" flotte"><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
 </p>
-
+<br>
 
 </body>
 <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br>
