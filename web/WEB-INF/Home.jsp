@@ -45,9 +45,10 @@
 </li>
 </p>
 
-<p class =" flotte">Total TTC : <text rows="" cols="4" name="total" placeholder="00"></text><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
+<input type="submit" class="validate" value="Valider le panier">
+<p class =" flotte"><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
 </p>
-
+<br>
 
 </body>
 <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br>
