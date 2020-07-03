@@ -46,68 +46,24 @@
                 <br>
             </c:forEach>
         </table>
-    </p>
-    <br>
-    <form>
-   <fieldset>
-        <legend>Livraison</legend>
-        
-        <label for="deliveryMode">Mode Livraison <span class="requis">*</span></label>
-        <input type="text" id="deliveryMode" name="deliveryMode" 
-               size="20" maxlength="20" 
-               />
-        <br>
-        <label for="firstName">Prénom <span class="requis">*</span></label>
-        <input type="text" id="firstName" name="firstName" 
-               size="20" maxlength="60"
-               />
-        <span class="erreur"></span>
-        <br>
-        <label for="lastName">Nom <span class="requis">*</span></label>
-        <input type="text" id="lastName" name="lastName" 
-               size="20" maxlength="20" 
-               />
-        <span class="erreur"></span>
-        <br>
-        <label for="line1">Adresse <span class="requis">*</span></label>
-        <input type="text" id="line" name="line1" 
-               size="20" maxlength="60" 
-               />
-        <span class="erreur"></span>
-        <input type="text" id="line" name="line2" 
-               size="20" maxlength="60" 
-               />
-        <span class="erreur"></span>
-        <br>
-         <label for="CodePostal">Code Postal <span class="requis">*</span></label>
-        <input type="text" id="CodePostal" name="CodePostal" 
-               size="20" maxlength="10" 
-               />
-        <span class="erreur"></span>
-        <input type="text" id="city" name="city" 
-               size="20" maxlength="60" 
-               />
-        <span class="erreur"></span>
-       <input type="submit" value='Confirmer' class="sansLabel"/>
-        <p>Les champs marqués d'un <span class='requis'>*</span>
-        sont obligatoires.</p>
-            
-    </fields1et>
-         
-    </form>
+        </p>
+<br>
+
+     
                     
-    <p class =" flotte">
+                    
+<p class =" flotte">
                     <text rows="" cols="4" name="total" placeholder="00"></text><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
-    </p>
-    <p class =" flotte">
-        <a class="favorite styled" href="./Home" style="und">Annuler</a>
-    </p>
-    <p class =" flotte">
-        <a class="favorite styled" href="./Address">Confirmer</a>
-    </p>
-    <p class =" flotte" style="margin: 20px">
-        Total TTC : <c:out value="${sessionScope.basket.orderTotal}" />
-    </p>
+</p>
+<p class =" flotte">
+    <button class="favorite styled" type="button" style="margin: 20px"> Annuler</button>
+</p>
+<p class =" flotte">
+    <button class="favorite styled" type="button" style="margin: 20px"> Valider</button> 
+</p>
+<p class =" flotte" style="margin: 20px">
+    Total TTC : <c:out value="${sessionScope.basket.orderTotal}" />
+</p>
 
 
 </body>
