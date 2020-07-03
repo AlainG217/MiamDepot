@@ -1,8 +1,4 @@
-<%-- 
-    Document   : loginAdmin
-    Created on : 30 juin 2020, 21:47:32
-    Author     : stagjava
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link  href="<c:url value="inc/css/connexion.css" />" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>Connection_Gerant</title>
     </head>
     <body>
         <header>
@@ -24,12 +20,12 @@
                  <legend>Connexion</legend>
                 
                 <label for="user">Login:  <span class="requis">*</span></label>
-                <input type="login" id="login" name="user" value="" /> <br />
-                <label for="motdepasse">Mot de passe: <span class="requis">*</span></label>
-                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" /> <br />
+                <input type="login" id="login" name="user" value="" placeholder="user" /> <br />
+                <label for="motdepasse">Mot de passe: <span class="re1quis">*</span></label>
+                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" placeholder="password"/> <br />
                 <input type="submit" value="connexion" href="http://localhost:8084/MiamDepot/admin"><br>
                 <a href="http://localhost:8084/MiamDepot/Home">Retour</a>
-
+               
             </fieldset>
 
 

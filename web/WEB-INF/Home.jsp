@@ -60,6 +60,6 @@
     81000 XXXX <br>
     -Téléphone : 00.00.00.00.00 <br>
     - Mail : mmmmmmm@gmail.com<br><br>
-    <a href="https://localhost:8084/MiamDepot/LoginAdmin">Espace gérant</a>
+    <a href="http://localhost:8084/MiamDepot/LoginAdmin">Espace gérant</a>
 </footer>
 </html>
