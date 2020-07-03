@@ -48,31 +48,36 @@
                         <td> <input type="prix" id="idCompany" name="prix"  /></td> 
 
                     </tr
+                    
+                   
+               
+                    
                 </table>
-                <br><br>  
-                <label for="taille">type produit  <span class="requis"></span></label>
-                <select name="categoryProduit"> 
-                    <option value="pizzeria">Pizzeria</option>
-                    <option value="boisson">Boisson</option>
-                </select><br><br>
+               
 
 
-                <input type="submit" value="Ajouter">    
-                <a href="http://localhost:8084/MiamDepot/GestionProduit"> <input type="button" value="Annuler" ></a> 
+ </table>
+                <tr>
+                 <input type="submit" value="Ajouter">       
+                    <a href="http://localhost:8084/MiamDepot/GestionProduit"> <input type="button" value="Annuler" ></a> 
+                </tr>
+                
+                <table>
+
+
+                
 
 
 
 
+            </fieldset>
         </form>
-
-
-
-
-
-    </fieldset>
-
-
-</body>
+        
+        
+        
+        
+        <footer>
+    </body>
 
 
 </html>
