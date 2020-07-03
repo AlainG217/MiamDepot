@@ -81,7 +81,7 @@ table{
 fieldset{
    margin: 0 auto;
    width: 50%;
-   text-align:center;
+  
 }
 legend {
     font:large;
@@ -96,7 +96,8 @@ body, p, legend, label, input {
 }
 form label {
     float: left;
-    width: 200px;
+    width: 500px;
+    height: 1000 px;
     margin: 3px 0px 0px 0px;
 }
 
@@ -149,7 +150,6 @@ textarea{
     height: 400 px;
     
 }
-
 
 
 

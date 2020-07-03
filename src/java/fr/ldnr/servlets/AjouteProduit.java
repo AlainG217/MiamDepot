@@ -9,6 +9,8 @@ import MiamProto.DAO.ProductDAO;
 import MiamProto.beans.Product;
 import MiamProto.beans.ProductSize;
 import MiamProto.metier.ProductPilot;
+import MiamProto.metier.ProductV;
+import MiamProto.metier.SalesOrderPilot;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "AjouteProduit", urlPatterns = {"/AjouteProduit"})
 public class AjouteProduit extends HttpServlet {
@@ -30,11 +33,37 @@ public class AjouteProduit extends HttpServlet {
             String description = request.getParameter("detail");
             String imagerep = request.getParameter("imageRep");
             int idcompany = Integer.parseInt(request.getParameter("idCompany"));
-          //  List<ProductSize> sizes = new ArrayList<>();
-            Product p=new Product(0, nom, description, imagerep, idcompany, idcompany);
-            ProductDAO obj=new ProductDAO();
-            obj.create(p);
+            double price = Double.valueOf("prix");
+            String size =request.getParameter("size");
+            
+            
+            
+            
+            ProductSize  e=new ProductSize();
+             e.setPrice(price);
+            e.setSize(size);
+           
+            
+          List<ProductSize> sizes=new ArrayList<>();
+          sizes.add(e);
+        ProductPilot obj=new ProductPilot();
+        obj.init(nom, description, idcompany, sizes);
+           obj.save();
             System.out.println("ajouter dans la base de donné ");
+            
+             
+        
+        this.getServletContext()
+                .getRequestDispatcher("/WEB-INF/gestionProduit.jsp")
+                .forward(request, response);
+            
+            
+            
+            
+            
+            
+            
+            
         }   
     }
       
