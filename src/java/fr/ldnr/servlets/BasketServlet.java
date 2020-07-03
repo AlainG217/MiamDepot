@@ -55,7 +55,6 @@ public class BasketServlet extends HttpServlet {
         
         // Fin pour tests
 
-        session.getAttribute("products");
         
         // Fill the basket with selected products
         pilot.newBasket(views);

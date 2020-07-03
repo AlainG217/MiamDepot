@@ -43,7 +43,7 @@ public class CompanyDAO  extends DAO<Company>{
                 co.setName(rs.getString("name"));
                 co.setIdAdress(rs.getInt("idAddress"));
                 co.setUser(rs.getString("user"));
-                co.setUser(rs.getString("password"));
+                co.setPassword(rs.getString("password"));
                 
             }
             

@@ -5,19 +5,16 @@
  */
 package fr.ldnr.servlets;
 
-import MiamProto.DAO.ProductDAO;
-import MiamProto.beans.ProductSize;
 import MiamProto.metier.ProductPilot;
 import MiamProto.metier.ProductV;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -55,47 +52,45 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
 
         ProductPilot pilot = new ProductPilot();
-        List<ProductV> views = pilot.getAll();
-        System.out.println(views);
-        
-        for (ProductV view : views) {
-            System.out.println(view.toString());
-            for (ProductSize ps : view.getSizes()) {
-                System.out.println(ps.toString());                
-            }
-        }
-        
-            request.setAttribute("products", views);
-            this.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/Home.jsp")
-                    .forward(request, response);
-        }
+        HttpSession session = request.getSession();
+        List<ProductV> foods = pilot.getFood();
+        List<ProductV> drinks = pilot.getDrinks();
 
-        /**
-         * Handles the HTTP <code>POST</code> method.
-         *
-         * @param request servlet request
-         * @param response servlet response
-         * @throws ServletException if a servlet-specific error occurs
-         * @throws IOException if an I/O error occurs
-         */
-        @Override
-        protected void doPost
-        (HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-            processRequest(request, response);
-        }
+        session.setAttribute("foods", foods);
+        session.setAttribute("drinks", drinks);
 
-        /**
-         * Returns a short description of the servlet.
-         *
-         * @return a String containing servlet description
-         */
-        @Override
-        public String getServletInfo
-        
-            () {
-        return "Short description";
-        }// </editor-fold>
+        this.getServletContext()
+                .getRequestDispatcher("/WEB-INF/Home.jsp")
+                .forward(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
     }
+
+    protected void updateOrder(int status) {
+        ProductV product = new ProductV();
+        product.setQty(product.getQty() + 1);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}

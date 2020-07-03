@@ -18,6 +18,7 @@ import java.util.List;
 public class SalesOrderPilot {
     private Company co;
     private List<SalesOrderLineV> lines;    
+    private List<ProductV> products;
     private SalesOrderV orderView;
     private int orderState = 0;
     private double orderTotal = 0;
@@ -54,6 +55,42 @@ public class SalesOrderPilot {
         orderView.setLines(lines);
         orderView.setOrderTotal(orderTotal);
 
+    }
+    
+    public List<ProductV> addLineToBasket (
+                List<ProductV> products, int id, int size) {
+        
+        this.products = products;
+        
+        // Check if the product size has already been added
+        int basketInd = findInBasket(id, size);
+        if ( basketInd> 0) {
+            // Increment the qunatity
+            incrementLineQty(basketInd);
+        } else {
+            // Add the line 
+            if (size == 0) {
+                addLineView( products.get(id),  0);
+            }
+            if (size == 1) {
+                addLineView( products.get(id),  1);
+            }
+            if (size == 2) {
+                addLineView( products.get(id),  2);
+            }
+            
+        }
+
+
+        return products;
+    }
+        
+    protected int findInBasket (int id, int size) {
+        return 0;
+    }
+    
+    protected void incrementLineQty (int basketInd) {
+        
     }
 
     protected void addLineView (ProductV product,int sizeSelected) {
