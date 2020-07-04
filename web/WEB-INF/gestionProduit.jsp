@@ -10,7 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link  href="<c:url value="inc/css/gestionProduit.css" />" rel="stylesheet">
-        <title>JSP Page</title>
+        <link href="inc/resources/favicon.ico" rel="icon" type="image/x-icon">
+        <title>Gestion produit</title>
     </head>
     <body>
         <header>
@@ -24,34 +25,29 @@
                 <legend>Ajouter des Produits</legend>
 
 
+                <input type="radio" id="typeP" name="type" value='0'> Pizza<br>
+                <input type="radio" id="typeB" name="type" value='1'> Boisson<br>
                 <label for="nom">Nom:  <span class="requis"></span></label>
                 <input type="text" id="nom" name="nomProduit" value="" /> <br /><br />
                 <label for="description">description: <span class="requis"></span></label>
                 <textarea name="detail"></textarea><br><br />
-                <label for="imageRep">imageRep <span class="requis"></span></label>
-                <input type="imageRep" id="description" name="imageRep"  /> <br /><br />
-                <label for="idCompany">idCompany: <span class="requis"></span></label>
-                <input type="idCompany" id="idCompany" name="idCompany"  /> 
 
                 <table>
                     <tr>
                         <th>Produit:</th>
-                        <th>petit: <input id="toggle" type="checkbox" name="size" value="petit"></th>
-                        <th>Moyen: <input id="toggle" type="checkbox" name="size"value="moyen"></th>
-                        <th>Grand: <input id="toggle" type="checkbox"name="size"value="grand"></th>
+                        <th>PETITE: <input id="toggle" type="checkbox" name="sizeSmall" value="PETITE"></th>
+                        <th>MOYENNE: <input id="toggle" type="checkbox" name="sizeMedium"value="MOYENNE"></th>
+                        <th>LARGE: <input id="toggle" type="checkbox"name="sizeLarge"value="GRANDE"></th>
 
                     </tr><br>
                     <tr>  
                         <th> Prix: </th>
-                        <td> <input type="prix" id="idCompany" name="prix"  /></td>
-                        <td> <input type="prix" id="idCompany" name="prix"  /></td>
-                        <td> <input type="prix" id="idCompany" name="prix"  /></td> 
+                        <td> <input type="number" id="idCompany" name="priceSmall"  /></td>
+                        <td> <input type="number" id="idCompany" name="priceMedium"  /></td>
+                        <td> <input type="number" id="idCompany" name="priceLarge"  /></td> 
 
-                    </tr
-                    
+                    </tr>
                    
-               
-                    
                 </table>
                
 
@@ -59,7 +55,8 @@
  </table>
                 <tr>
                  <input type="submit" value="Ajouter">       
-                    <a href="http://localhost:8084/MiamDepot/GestionProduit"> <input type="button" value="Annuler" ></a> 
+                    <a href="http://localhost:8084/MiamDepot/GestionProduit"> 
+                <input type="button" value="Annuler" href="./Home"></a> 
                 </tr>
                 
                 <table>
