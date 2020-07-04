@@ -18,7 +18,7 @@ public class SalesOrderLine implements Serializable {
      */
     private int id;
     private int orderQty;
-    private int unitPrice;
+    private double unitPrice;
     private double totalPrice;
     private int type;
     private int idOrder;
@@ -32,7 +32,7 @@ public class SalesOrderLine implements Serializable {
     public SalesOrderLine() {
     }
 
-    public SalesOrderLine(int id, int orderQty, int unitPrice, double totalPrice, int type, int idOrder, int idProductSize, int idMasterLine) {
+    public SalesOrderLine(int id, int orderQty, double unitPrice, double totalPrice, int type, int idOrder, int idProductSize, int idMasterLine) {
         this.id = id;
         this.orderQty = orderQty;
         this.unitPrice = unitPrice;
@@ -63,11 +63,11 @@ public class SalesOrderLine implements Serializable {
         this.orderQty = orderQty;
     }
 
-    public int getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(int unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 

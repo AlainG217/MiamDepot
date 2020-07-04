@@ -5,10 +5,19 @@
  */
 package MiamProto.metier;
 
+import MiamProto.DAO.AddressDAO;
 import MiamProto.DAO.CompanyDAO;
+import MiamProto.DAO.MySQLConnexion;
+import MiamProto.DAO.SalesOrderDAO;
+import MiamProto.DAO.SalesOrderLineDAO;
+import MiamProto.beans.Address;
 import MiamProto.beans.Company;
+import MiamProto.beans.ProductSize;
+import MiamProto.beans.SalesOrder;
 import MiamProto.beans.SalesOrderLine;
+import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,10 +30,15 @@ public class SalesOrderPilot {
     private List<SalesOrderLineV> lines;
     private List<ProductV> products;
     private SalesOrderV orderView;
+    private SalesOrder header;
     private int orderState = 0;
+    private int orderStatus = 0;
     private double orderTotal = 0;
 
     private CompanyDAO coDAO;
+    private AddressDAO aDAO;
+    private SalesOrderDAO sohDAO;
+    private SalesOrderLineDAO solDAO;
 
     public SalesOrderPilot() {
         // Retrieve Company infos
@@ -128,12 +142,91 @@ public class SalesOrderPilot {
                 line.setUnitPrice(product.getLargePrice());
                 break;
         }
+        // Find the id of the size
+        Iterator it = product.getSizes().listIterator();
+        
+        while (it.hasNext()) {
+            ProductSize ps = (ProductSize) it.next();
+            if (line.getSize().equals(ps.getSize())) {
+                line.setIdSize(ps.getId());
+            }
+        }
         line.setTotalPrice(line.getUnitPrice() * line.getOrderQty());
 
         lines.add(line);
         orderTotal += line.getTotalPrice();
     }
+    
+    
+    public void save() {
 
+        switch (orderState) {
+            case 1: add();
+            break;
+            case 11: update();
+            break;
+            default: System.out.println("Erreur interne - state invalid");
+        }
+    }
+    
+    public void add() {
+        // construct the DAOs
+        if (aDAO == null)
+            aDAO = new AddressDAO();
+        if (sohDAO == null)
+            sohDAO = new SalesOrderDAO();
+        if (solDAO == null)
+            solDAO = new SalesOrderLineDAO();
+        
+        // Get the connexion for Commit/Rollback
+        Connection connexion = MySQLConnexion.getInstance();
+
+        // view should be filled at this time
+        if (orderView != null) {
+            
+            try {
+                
+            // First create the address
+            Address address = aDAO.create(orderView.getAddress());
+            
+            // Create the sales order header
+            header = new SalesOrder();
+            header.setDeliveryMode(orderView.getDeliveryMode());
+            header.setDeliveryTime(orderView.getDeliveryTime());
+            header.setTotalPrice(orderView.getOrderTotal());
+            header.setIdCompany(co.getId());
+            header.setIdAdress(address.getId());
+            header = sohDAO.create(header);
+            
+            // Create the different lines
+            for (SalesOrderLineV line : orderView.getLines()) {
+                SalesOrderLine sol = new SalesOrderLine();
+                sol.setOrderQty(line.getOrderQty());
+                sol.setUnitPrice(line.getUnitPrice());
+                sol.setTotalPrice(line.getTotalPrice());
+                sol.setType(0);
+                sol.setIdOrder(header.getId());
+                sol.setIdProductSize(line.getIdSize());
+                sol.setIdMasterLine(0);
+                sol = solDAO.create(sol);
+            }
+            
+            // Commit
+            connexion.commit();
+            
+            } catch (Exception e ) {
+                // Roll back
+                try {
+                    connexion.rollback();
+                } catch (Exception  e2) {                            
+                }
+            }
+        }
+    }
+    public void update() {
+        // A implémenter
+    }
+    
     public Company getCo() {
         return co;
     }
@@ -172,6 +265,14 @@ public class SalesOrderPilot {
 
     public void setCoDAO(CompanyDAO coDAO) {
         this.coDAO = coDAO;
+    }
+
+    public int getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
 }

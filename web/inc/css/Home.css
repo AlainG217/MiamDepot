@@ -134,3 +134,15 @@ a {
 .gerant {
     text-decoration: underline;
 }
+
+.btnApparence {
+    -webkit-appearance: push-button;
+    box-sizing: border-box;
+    
+}
+
+label {
+    display: block;
+    width: 150px;
+    float: left;
+}

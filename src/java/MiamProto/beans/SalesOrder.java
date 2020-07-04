@@ -6,6 +6,7 @@
 package MiamProto.beans;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -21,7 +22,7 @@ public class SalesOrder implements Serializable {
      */
     private int id;
     private int deliveryMode;
-    private LocalDateTime deliveryTime;
+    private LocalDate deliveryTime;
     private int status;
     private double totalPrice;
     private int idCompany;
@@ -34,7 +35,7 @@ public class SalesOrder implements Serializable {
     public SalesOrder() {
     }
 
-    public SalesOrder(int id, int deliveryMode, LocalDateTime deliveryTime, int status, double totalPrice, int idCompany, int idAdress) {
+    public SalesOrder(int id, int deliveryMode, LocalDate deliveryTime, int status, double totalPrice, int idCompany, int idAdress) {
         this.id = id;
         this.deliveryMode = deliveryMode;
         this.deliveryTime = deliveryTime;
@@ -64,11 +65,11 @@ public class SalesOrder implements Serializable {
         this.deliveryMode = deliveryMode;
     }
 
-    public LocalDateTime getDeliveryTime() {
+    public LocalDate getDeliveryTime() {
         return deliveryTime;
     }
 
-    public void setDeliveryTime(LocalDateTime deliveryTime) {
+    public void setDeliveryTime(LocalDate deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
 

@@ -105,7 +105,7 @@ public class ProductDAO  extends DAO<Product>{
             pstmt.setString(3, obj.getImageRep());
             pstmt.setInt(4, obj.getIdCompany());
             pstmt.setInt(5, obj.getType());
-            pstmt.setInt(6, obj.getType());
+            pstmt.setInt(6, obj.getId());
 
             pstmt.executeUpdate();
             

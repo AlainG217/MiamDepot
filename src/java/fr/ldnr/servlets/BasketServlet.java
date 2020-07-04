@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Basket", urlPatterns = {"/Basket"})
 public class BasketServlet extends HttpServlet {
 
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -38,7 +37,6 @@ public class BasketServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
     }
 
     /**
@@ -52,30 +50,23 @@ public class BasketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         // Récupération de la session et des objets de la session
+        // Récupération de la session et des objets de la session
         HttpSession session = request.getSession();
 
         SalesOrderPilot pilot = (SalesOrderPilot) session.getAttribute("panierPilot");
-        
-        // Pour tests
-/*        ProductPilot productPilot = new ProductPilot();
-        List<ProductV> views = productPilot.getAll();
-        for (ProductV pview : views) {
-            pview.setQty(1);
-            pview.setMediumSelected(true);
-            pview.setLargeSelected(true);
-        }
-        session.setAttribute("products", views);
-*/        
-        // Fin pour tests
 
-        
         // Fill the basket with selected products
-        
-        pilot.showBasket();
-        
-        session.setAttribute("basket", pilot.getOrderView());
-        
+        if (pilot != null) {
+            pilot.showBasket();
+        } else {
+            this.getServletContext()
+                    .getRequestDispatcher("/WEB-INF/Home.jsp")
+                    .forward(request, response);
+
+        }
+
+        session.setAttribute("panier", pilot.getOrderView());
+
         // Envoi jsp
         this.getServletContext()
                 .getRequestDispatcher("/WEB-INF/Basket.jsp")

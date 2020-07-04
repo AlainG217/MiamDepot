@@ -24,7 +24,7 @@
         <p>
 
             <span class="product">Votre panier :  </span><br>
-            <c:set var="lines" value="${sessionScope.basket.lines}" />
+            <c:set var="lines" value="${sessionScope.panier.lines}" />
         <table> <span class="name">
             <tr>
                 <th>Nom</th>
@@ -50,20 +50,20 @@
 <br>
 
      
+<form action="${pageContext.request.contextPath}/OrderConfirmation" method="get">
+    <fieldset class="fieldset10">
                     
                     
-<p class =" flotte">
-                    <text rows="" cols="4" name="total" placeholder="00"></text><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
-</p>
-<p class =" flotte">
-    <button class="favorite styled" type="button" style="margin: 20px"> Annuler</button>
-</p>
-<p class =" flotte">
-    <button class="favorite styled" type="button" style="margin: 20px"> Valider</button> 
-</p>
-<p class =" flotte" style="margin: 20px">
-    Total TTC : <c:out value="${sessionScope.basket.orderTotal}" />
-</p>
+        <p class =" flotte">
+            <text rows="" cols="4" name="total" placeholder="00"></text><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
+        </p>
+        <p class =" btnApparence" style="margin: 20px">
+            Total TTC : <c:out value="${sessionScope.panier.orderTotal}" />
+        </p>
+        <a class="validate" href="${pageContext.request.contextPath}/Home">Annuler</a>
+        <input type="submit" class="validate" value="Confirmer la commande">
+    </fieldset>
+</form>
 
 
 </body>
