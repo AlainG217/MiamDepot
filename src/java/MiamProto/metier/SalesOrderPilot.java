@@ -88,11 +88,8 @@ public class SalesOrderPilot {
         }
 
         // Check if the product size has already been added
-        int basketInd = findInBasket(id, size);
-        if (basketInd > 0) {
-            // Increment the qunatity
-            incrementLineQty(basketInd);
-        } else {
+        boolean found = findInBasket(products, id, size);
+        if (found == false) {
             // Add the line 
             if (size == 0) {
                 addLineView(products.get(id), 0);
@@ -109,12 +106,48 @@ public class SalesOrderPilot {
         return products;
     }
 
-    protected int findInBasket(int id, int size) {
-        // To be implemented
-        return 0;
+    protected boolean findInBasket(List<ProductV> products, int id, int size) {
+        // Check if product and size have already been added
+        ProductV pv = products.get(id);
+        
+        Iterator it = lines.listIterator();
+        
+        while (it.hasNext()) {
+            SalesOrderLineV line = (SalesOrderLineV) it.next();
+            if (line.getIdProduct() == pv.getId()) {
+                        // Size mgt
+                switch (size) {
+                    // Small
+                    case 0:
+                       if (line.getSize().equals("PETITE")) {
+                           incrementLineQty(line, lines.indexOf(line));
+                           return true;
+                       }
+                        break;
+                    case 1:
+                       if (line.getSize().equals("MOYENNE")) {
+                           incrementLineQty(line, lines.indexOf(line));
+                           return true;
+                       }
+                        break;
+                    case 2:
+                       if (line.getSize().equals("GRANDE")) {
+                           incrementLineQty(line, lines.indexOf(line));
+                           return true;
+                       }
+                        break;
+                }
+
+            }
+        }
+        return false;
     }
 
-    protected void incrementLineQty(int basketInd) {
+    protected void incrementLineQty(SalesOrderLineV line, int id) {
+
+        line.setOrderQty(line.getOrderQty() + 1);
+        line.setTotalPrice(line.getOrderQty() * line.getUnitPrice());
+        lines.set(id, line);
 
     }
 
