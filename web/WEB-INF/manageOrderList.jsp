@@ -41,7 +41,7 @@
                     <td><c:out value="${order.clientName}" /></td>
                     <td><c:out value="${order.mode}" /></td>
                     <td><c:out value="${order.deliveryTime}" /></td>
-                    <td>"Réglée</td>
+                    <td>Réglée</td>
                     <td><c:out value="${order.orderTotal}" /></td>
                     <td><a class="favorite styled" href="./UpdateProduct?id=${status.index}&type=1">  Détails</a><span class="edit"></span> </td>
                 </tr>
@@ -60,7 +60,7 @@
             <text rows="" cols="4" name="total" placeholder="00"></text><img id ="cook" src="./inc/resources/cook-1773658_1280.png" alt="img cook" height="200px" width="200px" /></figure>
         </p>
         <p class =" btnApparence" style="margin: 20px">
-            Total commandes : <c:out value="${sessionScope.panier.orderTotal}" />
+            Total commandes : <c:out value="${sessionScope.ca}" />
         </p>
         <input type="submit" class="validate" value="Gestion de la carte">
     </fieldset>

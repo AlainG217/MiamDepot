@@ -45,9 +45,11 @@ public class ConnexionServlet extends HttpServlet {
         try {
   PrintWriter out=response.getWriter();
             if (connectPilot.connect(username, motdepasse)) {
-                this.getServletContext()
+                response.sendRedirect(request.getContextPath() + "/WEB-INF/manageOrderList.jsp");
+/*                this.getServletContext()
                         .getRequestDispatcher("/WEB-INF/manageOrderList.jsp")
                         .forward(request, response);
+*/
             } else {
 
                  

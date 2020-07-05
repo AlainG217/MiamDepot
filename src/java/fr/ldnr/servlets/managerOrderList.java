@@ -45,9 +45,10 @@ public class managerOrderList extends HttpServlet {
             pilot = new SalesOrderPilot();
         }
 
-        pilot.showOrderList();
+        double ca = pilot.showOrderList();
 
         session.setAttribute("orders", pilot.getOrders());
+        session.setAttribute("ca", ca);
 
         // Envoi jsp
         this.getServletContext()

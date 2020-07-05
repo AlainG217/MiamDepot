@@ -262,10 +262,11 @@ public class SalesOrderPilot {
         // A implémenter
     }
     
-    public void showOrderList () {
+    public double showOrderList () {
 
     // Init
     List<SalesOrder> orderBeans = new ArrayList<>();
+    double ca = 0;
     if (orders == null)
         orders = new ArrayList<>() ;
 
@@ -290,8 +291,11 @@ public class SalesOrderPilot {
             view.init(bean);
             
             orders.add(view);
+            
+            ca += bean.getTotalPrice();
         }
 
+        return ca;
     }
     
     public Company getCo() {
