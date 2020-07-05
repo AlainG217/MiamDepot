@@ -46,7 +46,7 @@ public class ConnexionServlet extends HttpServlet {
   PrintWriter out=response.getWriter();
             if (connectPilot.connect(username, motdepasse)) {
                 this.getServletContext()
-                        .getRequestDispatcher("/WEB-INF/gestionProduit.jsp")
+                        .getRequestDispatcher("/WEB-INF/managerProductList.jsp")
                         .forward(request, response);
             } else {
 

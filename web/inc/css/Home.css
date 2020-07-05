@@ -124,6 +124,11 @@ footer {
     padding-right: 30px;
     font-size: 107%;
 }
+.edit {
+/*    float: right;*/
+    padding-right: 30px;
+    font-size: 107%;
+}
 .tailles {
     float: right;
 }

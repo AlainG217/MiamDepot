@@ -120,9 +120,19 @@ public class AjouteProduit extends HttpServlet {
             obj.init(nom, description, type, sizes);
             obj.save();
             System.out.println("ajouter dans la base de donné ");
+            
+            // Reload session attributes with updated list
+            HttpSession session = request.getSession();
+ 
+            List<ProductV> foods = obj.getFood();
+            List<ProductV> drinks = obj.getDrinks();
+        
+            session.setAttribute("foods", foods);
+            session.setAttribute("drinks", drinks);
+
 
             this.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/gestionProduit.jsp")
+                    .getRequestDispatcher("/WEB-INF/managerProductList.jsp")
                     .forward(request, response);
     }
 
