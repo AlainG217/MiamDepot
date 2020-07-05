@@ -15,7 +15,7 @@
         <img src="./inc/resources/big-2530142_640.jpg" alt="image pizza" height="310px" width="600px" /></figure>
         <h2>Pizzeria</h2>
     </header>
-        <form action="ConnexionServlet" method="post">
+        <form action="manageOrderList" method="get">
             <fieldset>
                  <legend>Connexion</legend>
                 

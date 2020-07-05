@@ -28,6 +28,7 @@ public class SalesOrderPilot {
 
     private Company co;
     private List<SalesOrderLineV> lines;
+    private List<SalesOrderV> orders;
     private List<ProductV> products;
     private SalesOrderV orderView;
     private SalesOrder header;
@@ -261,6 +262,38 @@ public class SalesOrderPilot {
         // A implémenter
     }
     
+    public void showOrderList () {
+
+    // Init
+    List<SalesOrder> orderBeans = new ArrayList<>();
+    if (orders == null)
+        orders = new ArrayList<>() ;
+
+    // construct the DAOs
+        if (sohDAO == null)
+            sohDAO = new SalesOrderDAO();
+        if (solDAO == null)
+            solDAO = new SalesOrderLineDAO();
+        if (aDAO == null)
+            aDAO = new AddressDAO();
+        
+        // Get the list of orders
+        orderBeans = sohDAO.getAll();
+        
+        // For each order, prepare the view for list
+        for (SalesOrder bean : orderBeans) {
+            SalesOrderV view = new SalesOrderV();
+            
+            // get the address
+            Address adr = aDAO.find(bean.getIdAdress());
+            view.setAddress(adr);
+            view.init(bean);
+            
+            orders.add(view);
+        }
+
+    }
+    
     public Company getCo() {
         return co;
     }
@@ -307,6 +340,62 @@ public class SalesOrderPilot {
 
     public void setOrderStatus(int orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public List<SalesOrderV> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<SalesOrderV> orders) {
+        this.orders = orders;
+    }
+
+    public List<ProductV> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductV> products) {
+        this.products = products;
+    }
+
+    public SalesOrder getHeader() {
+        return header;
+    }
+
+    public void setHeader(SalesOrder header) {
+        this.header = header;
+    }
+
+    public double getOrderTotal() {
+        return orderTotal;
+    }
+
+    public void setOrderTotal(double orderTotal) {
+        this.orderTotal = orderTotal;
+    }
+
+    public AddressDAO getaDAO() {
+        return aDAO;
+    }
+
+    public void setaDAO(AddressDAO aDAO) {
+        this.aDAO = aDAO;
+    }
+
+    public SalesOrderDAO getSohDAO() {
+        return sohDAO;
+    }
+
+    public void setSohDAO(SalesOrderDAO sohDAO) {
+        this.sohDAO = sohDAO;
+    }
+
+    public SalesOrderLineDAO getSolDAO() {
+        return solDAO;
+    }
+
+    public void setSolDAO(SalesOrderLineDAO solDAO) {
+        this.solDAO = solDAO;
     }
 
 }
